@@ -12,7 +12,7 @@ public class Project
     
     // Contains project name, author name, number of tracks, etc
     public object ProjectSettings;
-    public List<BaseInstrument> Instruments;
+    public List<ITrackerInstrument> Instruments;
     // List of ints that point to indices of Patterns to compose a song
     public List<int> Song;
     public List<Pattern> Patterns;
