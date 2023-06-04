@@ -15,6 +15,30 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <!-- <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+    <DockPanel Width="800" Height="450" LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open..."/>
+                <Separator/>
+                <MenuItem Header="_Exit"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="Copy"/>
+                <MenuItem Header="Paste"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel DockPanel.Dock="Left">
+            <Rectangle Fill="Firebrick" Width="20"  Height="20"/>
+            <Rectangle Fill="Fuchsia" Width="100" Height="30"/>
+        </StackPanel>
+        <ScrollViewer>
+            
+        </ScrollViewer>
+        <!-- <Grid Background="Bisque" ColumnDefinitions="*,*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ShowGridLines="True"> -->
+        <!--     <Rectangle Grid.Column="0" Fill="Chartreuse" /> -->
+        <!--     <Rectangle Grid.Column="1" Fill="Blue" /> -->
+        <!-- </Grid> -->
+    </DockPanel>
 
 </Window>
