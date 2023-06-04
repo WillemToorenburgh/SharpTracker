@@ -7,13 +7,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6a05059-e496-4145-8cb3-788d5160d130" name="Changes" comment="Update language target">
+    <list default="true" id="f6a05059-e496-4145-8cb3-788d5160d130" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TrackerCore/Audio/AudioPlaybackEngine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrackerCore/Audio/AutoDisposeFileReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrackerCore/Audio/CachedSound.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrackerCore/Audio/CachedSoundSampleProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrackerCore/Instruments/ITrackerInstrument.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SharpTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SharpTracker.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrackerCore/Instruments/BaseInstrument.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrackerCore/Instruments/SampleInstrument.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrackerCore/Instruments/SampleInstrument.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,11 +33,16 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/095b750996dc4ac0b15cb5e151c961cbe000/d6/aaabba6f/WaveOutEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/346e1baf23cb485c9698d757bd5611bd2e000/fc/cde35795/ISampleProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3a588806594f417ba5fc26041a2cf34714878/_d965b/INotifyPropertyChanged.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f36724d2e12b56ff0d73dd63d47dd2212a2c78223d4a2b475d856c31ae8cd/ReactiveObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6d717f752e72749db493075d963f742958bbf437efae8153cc80e779aca7c1/Application.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/development/SharpTracker/App.axaml.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/development/SharpTracker/ViewModels/MainWindowViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/development/SharpTracker/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/development/SharpTracker/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/development/SharpTracker/Views/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/development/SharpTracker/Views/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/development/SharpTracker/Views/MainWindow.axaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,6 +113,7 @@
       <workItem from="1685069283856" duration="6822000" />
       <workItem from="1685130236612" duration="1408000" />
       <workItem from="1685136408784" duration="415000" />
+      <workItem from="1685728621995" duration="28018000" />
     </task>
     <task id="LOCAL-00001" summary="Update language target">
       <created>1683915588179</created>
@@ -105,17 +122,92 @@
       <option name="project" value="LOCAL" />
       <updated>1683915588179</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Introduce global constants and values">
+      <created>1685740376910</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685740376910</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implement basic, best-guess Step object&#10;Step = one audio event">
+      <created>1685740462171</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685740462171</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implement basic Track object&#10;A track is an ordered list of steps">
+      <created>1685741543440</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741543440</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Incomplete, WIP, broken implementation of Instruments">
+      <created>1685741577988</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741577988</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Basic implementation of a Pattern&#10;Patterns are a collection of Tracks of a given length">
+      <created>1685741611218</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741611218</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Basic implementation of a Project&#10;A project is a collection of Patterns, Instruments, and a composition of those Patterns into a Song">
+      <created>1685741643070</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741643070</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding auto-generated files&#10;Don't know if these need to be here, but they're not gitignored, so ¯\_(ツ)_/¯">
+      <created>1685741699379</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741699379</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding Avalonia.DataGrid and NAudio">
+      <created>1685741730893</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685741730893</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update language target" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update language target" />
+    <MESSAGE value="Introduce global constants and values" />
+    <MESSAGE value="Implement basic, best-guess Step object&#10;Step = one audio event" />
+    <MESSAGE value="Implement basic Track object&#10;A track is an ordered list of steps" />
+    <MESSAGE value="Incomplete, WIP, broken implementation of Instruments" />
+    <MESSAGE value="Basic implementation of a Pattern&#10;Patterns are a collection of Tracks of a given length" />
+    <MESSAGE value="Basic implementation of a Project&#10;A project is a collection of Patterns, Instruments, and a composition of those Patterns into a Song" />
+    <MESSAGE value="Adding auto-generated files&#10;Don't know if these need to be here, but they're not gitignored, so ¯\_(ツ)_/¯" />
+    <MESSAGE value="Adding Avalonia.DataGrid and NAudio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Avalonia.DataGrid and NAudio" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
