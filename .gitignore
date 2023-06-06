@@ -467,6 +467,7 @@ $RECYCLE.BIN/
 # Common IntelliJ Platform excludes
 
 # User specific
+.idea\.idea.SharpTracker.dir\.idea\workspace.xml
 **/.idea/**/workspace.xml
 **/.idea/**/tasks.xml
 **/.idea/shelf/*
