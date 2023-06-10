@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:local="clr-namespace:SharpTracker.Views"
         x:Class="SharpTracker.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -14,6 +15,20 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    
+    <!-- TODO: split each major element out into their own view files and link them in here using views:<viewname> references -->
+    <Window.ContentTemplate>
+        <!-- <DataTemplate DataType="{x:Type local:tbd}"> -->
+        <!--     <Grid RowDefinitions="Auto,Auto,*"> -->
+        <!--     </Grid> -->
+        <!-- </DataTemplate> -->
+    </Window.ContentTemplate>
+    
+    <Window.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="FontFamily" Value="Roboto Mono"/>
+        </Style>
+    </Window.Styles>
 
     <!-- <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
     <DockPanel Width="800" Height="450" LastChildFill="True">
@@ -28,12 +43,55 @@
                 <MenuItem Header="Paste"/>
             </MenuItem>
         </Menu>
-        <StackPanel DockPanel.Dock="Left">
-            <Rectangle Fill="Firebrick" Width="20"  Height="20"/>
-            <Rectangle Fill="Fuchsia" Width="100" Height="30"/>
+        <StackPanel DockPanel.Dock="Left" Width="150">
+            <Button Background="Firebrick">I am a button</Button>
+            <Button Background="Fuchsia">I am also a button</Button>
+
         </StackPanel>
+        <!-- Tracks area -->
         <ScrollViewer>
-            
+            <StackPanel Orientation="Horizontal">
+                <!-- A single track, top to bottom: audio meter, volume slider, track's steps -->
+                <Grid RowDefinitions="Auto,Auto,*" Width="120">
+                    <!-- audio meter -->
+                    <Label Grid.Row="0" Height="20" Background="Blue">I am a volume readout</Label>
+                    <!-- volume slider -->
+                    <!-- TODO: How the heck to size and style this correctly? -->
+                    <Slider 
+                        Grid.Row="1"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        Height="32"
+                        Value="0"
+                        TickFrequency="50"
+                        TickPlacement="TopLeft"
+                        Padding="0,-10,0,-5"
+                    />
+                    <!-- steps display -->
+                    <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,Auto,Auto">
+                        <ListBox Grid.Column="0" SelectionMode="Single,Multiple">
+                            <ListBoxItem Padding="1">--</ListBoxItem>
+                            <ListBoxItem Padding="1">C3</ListBoxItem>
+                            <ListBoxItem Padding="1">C3#</ListBoxItem>
+                        </ListBox>
+                        <ListBox Grid.Column="1" SelectionMode="Single,Multiple">
+                            <ListBoxItem Padding="1">--</ListBoxItem>
+                            <ListBoxItem Padding="1">01</ListBoxItem>
+                            <ListBoxItem Padding="1">02</ListBoxItem>
+                        </ListBox>
+                        <ListBox Grid.Column="2" SelectionMode="Single,Multiple">
+                            <ListBoxItem Padding="1">----</ListBoxItem>
+                            <ListBoxItem Padding="1">01aa</ListBoxItem>
+                            <ListBoxItem Padding="1">02bb</ListBoxItem>
+                        </ListBox>
+                        <ListBox Grid.Column="3" SelectionMode="Single,Multiple">
+                            <ListBoxItem Padding="1">----</ListBoxItem>
+                            <ListBoxItem Padding="1">03cc</ListBoxItem>
+                            <ListBoxItem Padding="1">04dd</ListBoxItem>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </StackPanel>
         </ScrollViewer>
         <!-- <Grid Background="Bisque" ColumnDefinitions="*,*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ShowGridLines="True"> -->
         <!--     <Rectangle Grid.Column="0" Fill="Chartreuse" /> -->
