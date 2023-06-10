@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using SharpTracker.ViewModels;
 
 namespace SharpTracker.TrackerCore;
 
 public class Pattern
 {
     public string Name;
-    public List<Track> Tracks;
+    public List<TrackViewModel> Tracks;
 
     private int _length = 32;
     public int Length
