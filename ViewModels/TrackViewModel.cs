@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Avalonia.Collections;
+using SharpTracker.TrackerCore;
 
-namespace SharpTracker.TrackerCore;
+namespace SharpTracker.ViewModels;
 
-public class Track
+public class TrackViewModel
 {
     // ### objects and values required from parent
     // placeholder for an object which will be passed to Steps to let them play their audio
@@ -26,7 +25,7 @@ public class Track
         set => _trackVolume = Math.Clamp(value, 0, GlobalConsts.MaxVolume);
     }
 
-    public Track(object audioOutProvider, AvaloniaList<Step>? trackCells)
+    public TrackViewModel(object audioOutProvider, AvaloniaList<Step>? trackCells)
     {
         AudioOutProvider = audioOutProvider;
         TrackSteps = trackCells ?? new AvaloniaList<Step>(GlobalConsts.MaxPatternLength);
