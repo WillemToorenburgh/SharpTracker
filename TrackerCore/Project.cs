@@ -11,7 +11,7 @@ public class Project
     private int SharpTrackerProjectVersion = 1;
     
     // Contains project name, author name, number of tracks, etc
-    public object ProjectSettings;
+    public ProjectSettings Settings;
     public List<ITrackerInstrument> Instruments;
     // List of ints that point to indices of Patterns to compose a song
     public List<int> Song;

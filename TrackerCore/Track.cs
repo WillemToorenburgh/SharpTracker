@@ -23,6 +23,10 @@ public class Track
         set => _trackVolume = Math.Clamp(value, 0, GlobalConsts.MaxVolume);
     }
 
+    //TODO: these next two perhaps become enums, or a reference to another library which has already done the work for me
+    public object? Scale { get; set;}
+    public object? Mode { get; set;}
+
     public Track(object audioOutProvider, List<Step>? trackCells)
     {
         TrackSteps = trackCells ?? new List<Step>(GlobalConsts.MaxPatternLength);
