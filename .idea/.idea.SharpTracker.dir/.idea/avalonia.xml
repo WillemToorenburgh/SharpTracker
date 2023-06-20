@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="SharpTracker.csproj" />
+        <entry key="Controls/Templates/TrackTemplate.axaml" value="SharpTracker.csproj" />
         <entry key="TodoListView.axaml" value="SharpTracker.csproj" />
         <entry key="Views/MainWindow.axaml" value="SharpTracker.csproj" />
       </map>

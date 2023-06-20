@@ -27,9 +27,8 @@ public class Track
     public object? Scale { get; set;}
     public object? Mode { get; set;}
 
-    public Track(object audioOutProvider, List<Step>? trackCells)
+    public Track(List<Step>? trackCells = null)
     {
         TrackSteps = trackCells ?? new List<Step>(GlobalConsts.MaxPatternLength);
-        AudioOutProvider = audioOutProvider;
     }
 }
