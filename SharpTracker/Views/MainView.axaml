@@ -12,5 +12,87 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <DockPanel Width="800" Height="450" LastChildFill="True">
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="_File">
+        <MenuItem Header="_Open..."/>
+        <Separator/>
+        <MenuItem Header="_Exit"/>
+      </MenuItem>
+      <MenuItem Header="_Edit">
+        <MenuItem Header="Copy"/>
+        <MenuItem Header="Paste"/>
+      </MenuItem>
+    </Menu>
+    <StackPanel DockPanel.Dock="Left" Width="150">
+      <Button Background="Firebrick">I am a button</Button>
+      <Button Background="Fuchsia">I am also a button</Button>
+
+    </StackPanel>
+    <!-- Tracks area -->
+    <ScrollViewer>
+      <StackPanel Orientation="Horizontal">
+        <!-- A single track, top to bottom: audio meter, volume slider, track's steps -->
+        <Grid RowDefinitions="Auto,Auto,*" Width="125">
+          <!-- audio meter -->
+          <Label Grid.Row="0" Height="20" Background="Blue">I am a volume readout</Label>
+          <!-- volume slider -->
+          <!-- TODO: How the heck to size and style this correctly? -->
+          <Slider
+              Grid.Row="1"
+              Value="100"
+              TickFrequency="25"
+              TickPlacement="Outside"
+              Padding="0,-6,0,-5"
+                    />
+          <!-- steps display -->
+          <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,Auto,Auto">
+            <ListBox Grid.Column="0" SelectionMode="Single,Multiple">
+              <ListBoxItem Padding="1">--</ListBoxItem>
+              <ListBoxItem Padding="1">C3</ListBoxItem>
+              <ListBoxItem Padding="1">C3#</ListBoxItem>
+            </ListBox>
+            <ListBox Grid.Column="1" SelectionMode="Single,Multiple">
+              <ListBoxItem Padding="1">--</ListBoxItem>
+              <ListBoxItem Padding="1">01</ListBoxItem>
+              <ListBoxItem Padding="1">02</ListBoxItem>
+            </ListBox>
+            <ListBox Grid.Column="2" SelectionMode="Single,Multiple">
+              <ListBoxItem Padding="1">----</ListBoxItem>
+              <ListBoxItem Padding="1">01aa</ListBoxItem>
+              <ListBoxItem Padding="1">02bb</ListBoxItem>
+            </ListBox>
+            <ListBox Grid.Column="3" SelectionMode="Single,Multiple">
+              <ListBoxItem Padding="1">----</ListBoxItem>
+              <ListBoxItem Padding="1">03cc</ListBoxItem>
+              <ListBoxItem Padding="1">04dd</ListBoxItem>
+            </ListBox>
+          </Grid>
+        </Grid>
+      <!--Duplicate of the above to try to recreate it with Avalonia.Controls.DataGrid-->
+        <!-- A single track, top to bottom: audio meter, volume slider, track's steps -->
+        <Grid RowDefinitions="Auto,Auto,*" Width="125">
+          <!-- audio meter -->
+          <Label Grid.Row="0" Height="20" Background="Blue">I am a volume readout</Label>
+          <!-- volume slider -->
+          <!-- TODO: How the heck to size and style this correctly? -->
+          <Slider
+              Grid.Row="1"
+              Value="100"
+              TickFrequency="25"
+              TickPlacement="Outside"
+              Padding="0,-6,0,-5"
+                    />
+          <!-- steps display -->
+          <DataGrid Grid.Row="2" ItemsSource="{Binding Project.Patterns}" AutoGenerateColumns="True">
+          </DataGrid>
+        </Grid>
+      </StackPanel>
+      
+    </ScrollViewer>
+     <!--<Grid Background="Bisque" ColumnDefinitions="*,*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ShowGridLines="True"> 
+         <Rectangle Grid.Column="0" Fill="Chartreuse" /> 
+         <Rectangle Grid.Column="1" Fill="Blue" /> 
+     </Grid>-->
+  </DockPanel>
 </UserControl>

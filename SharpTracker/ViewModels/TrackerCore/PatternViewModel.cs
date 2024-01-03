@@ -1,7 +1,7 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Collections;
-using ReactiveUI;
 
 using SharpTracker.TrackerCore;
 
@@ -11,30 +11,37 @@ public class PatternViewModel : ViewModelBase
 {
     private Pattern _pattern;
 
+    public ObservableCollection<TrackViewModel> Tracks { get; }
+
     public PatternViewModel(Pattern? pattern = null)
     {
         _pattern = pattern ?? new Pattern();
-        LoadTracks();
+        // Create a new ObservableCollection of TrackViewModels, and populate it with the TrackViewModel representation of Tracks
+        Tracks = new ObservableCollection<TrackViewModel>(_pattern.Tracks.Select(track => new TrackViewModel(track)));
     }
     
     public string Name
     {
         get => _pattern.Name;
-        set => _pattern.Name = this.RaiseAndSetIfChanged(ref _pattern.Name, value);
+        set => SetProperty(field: ref _pattern.Name, newValue: value);
     }
 
     public int Length
     {
         get => _pattern.Length;
-        //TODO: can't ref to a property that has a method setter, it seems. Need to maybe replicate the effects of RaiseAndSetIfChanged?
-        // set => _pattern.Length = this.RaiseAndSetIfChanged(ref _pattern.Length, Math.Clamp(value, 1, GlobalConsts.MaxPatternLength));
+        set => SetProperty(field: ref _pattern.Length, Math.Clamp(value, 1, GlobalConsts.MaxPatternLength));
     }
 
-    public AvaloniaList<TrackViewModel> Tracks;
-
-    public void LoadTracks()
+    public object Scale
     {
-        // Create a new AvaloniaList of TrackViewModels, and populate it with the TrackViewModel representation of Tracks
-        Tracks = new AvaloniaList<TrackViewModel>(_pattern.Tracks.Select(track => new TrackViewModel(track)));
+        get => _pattern.Scale;
+        set => SetProperty(field: ref _pattern.Scale, newValue: value);
     }
+
+    public object Mode
+    {
+        get => _pattern.Mode;
+        set => SetProperty(field: ref _pattern.Mode, newValue: value);
+    }
+
 }

@@ -8,27 +8,18 @@ public class Track
     // ### objects and values required from parent
     // placeholder for an object which will be passed to Steps to let them play their audio
     //TODO: determine if there should be one audio out provider for the whole program, or one per track
-    public object AudioOutProvider;
+    public object? AudioOutProvider;
     
     // ### child objects
-    public List<Step> TrackSteps;
+    public List<Step> Steps;
     
     // ### volume properties
     public bool IsMuted = false;
 
-    private int _trackVolume = 100;
-    public int TrackVolume
-    {
-        get => _trackVolume;
-        set => _trackVolume = Math.Clamp(value, 0, GlobalConsts.MaxVolume);
-    }
-
-    //TODO: these next two perhaps become enums, or a reference to another library which has already done the work for me
-    public object? Scale { get; set;}
-    public object? Mode { get; set;}
+    public int TrackVolume = 100;
 
     public Track(List<Step>? trackCells = null)
     {
-        TrackSteps = trackCells ?? new List<Step>(GlobalConsts.MaxPatternLength);
+        Steps = trackCells ?? new List<Step>(GlobalConsts.MaxPatternLength);
     }
 }

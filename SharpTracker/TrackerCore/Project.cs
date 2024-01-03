@@ -11,18 +11,22 @@ public class Project
     private int SharpTrackerProjectVersion = 1;
     
     // Contains project name, author name, number of tracks, etc
-    public ProjectSettings Settings;
-    public List<ITrackerInstrument> Instruments;
+    // TODO: Implement ProjectSettings so that the UI can see it
+    public ProjectSettings Settings { get; set; }
+    public List<ITrackerInstrument>? Instruments { get; set; }
     // List of ints that point to indices of Patterns to compose a song
-    public List<int> Song;
-    public List<Pattern> Patterns;
-    
-    //TODO: implement an NAudio Mixer provider to combine separate sources of audio to one output stream
-    
-    private int _projectVolume = 100;
-    public int ProjectVolume
+    public List<int> Song { get; set; }
+    public List<Pattern> Patterns { get; set; }
+
+    public Project()
     {
-        get => _projectVolume;
-        set => _projectVolume = Math.Clamp(value, 0, GlobalConsts.MaxVolume);
+        Settings = new ProjectSettings();
+        Instruments = new List<ITrackerInstrument>();
+        Song = new List<int>();
+        Patterns = new List<Pattern>();
     }
+
+    //TODO: implement an NAudio Mixer provider to combine separate sources of audio to one output stream
+
+    public int Volume = 100;
 }

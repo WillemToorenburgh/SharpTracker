@@ -7,20 +7,17 @@ public class Pattern
 {
     public string? Name;
     public List<Track> Tracks;
+    public int Length = 32;
+
+    //TODO: these next two perhaps become enums, or a reference to another library which has already done the work for me
+    //TODO: it also may make more sense to have these exist at the project level and inherit the value of the parent, then allow overrides pattern-by-pattern
+    public object? Scale;
+    public object? Mode;
 
     public Pattern(List<Track>? tracks = null)
     {
-        Tracks = tracks ?? new List<Track>();
+        Tracks = tracks ?? new List<Track>(GlobalConsts.MaxTrackCount);
+        // Always ensure we've got one track.
+        if (Tracks.Count == 0) { Tracks.Add(new Track()); }
     }
-
-    private int _length = 32;
-    public int Length
-    {
-        get => _length;
-        set => _length = Math.Clamp(value, 1, GlobalConsts.MaxPatternLength);
-    }
-
-    //TODO: these next two perhaps become enums, or a reference to another library which has already done the work for me
-    public object? Scale { get; set;}
-    public object? Mode { get; set;}
 }

@@ -1,6 +1,17 @@
-﻿namespace SharpTracker.ViewModels;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+using SharpTracker.ViewModels.TrackerCore;
+
+namespace SharpTracker.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
-    public string Greeting => "Welcome to Avalonia!";
+    public ProjectViewModel Project { get; }
+
+    public MainViewModel()
+    {
+        var project = new ProjectViewModel();
+        Project = project;
+    }
 }
